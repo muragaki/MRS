@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+  background-color: whitesmoke;
+  color: #333;
+}
+
+div {
+  margin: 45px 0 0 45px;
+}
+
+h1 {
+  color: tomato;
+}
+
+h3 {
+	color:red;
+}
+
+td {
+  color: darkblue;
+}

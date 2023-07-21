@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http;//thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ユーザー登録</title>
+</head>
+<body>
+	<h2 class="heading">ユーザー登録</h2>
+	<form method="post" th:action="@{/signup}" th:object="${signupForm}">
+		<div th:if="${signupError}">
+			<div th:text="${signupError}"></div>
+		</div>
+		<p th:if="${#fields.hasErrors('passwordValid')}" th:errors="*{passwordValid}"></p>
+		<table>
+			<tr>
+				<td><label for="username">ユーザー名</label></td>
+				<td><input type="text" id="username" name="userId" th:value="${signupForm.userId}"></td>
+				<td><div th:if="${#fields.hasErrors('userId')}" th:errors="${signupForm.userId}"></div></td>
+			</tr>
+			<tr>
+				<td><label for="password">パスワード</label></td>
+				<td><input type="password" id="password" name="password" th:value="${signupForm.password}"></td>
+				<td><div th:if="${#fields.hasErrors('password')}" th:errors="${signupForm.password}"></div></td>
+			</tr>
+			<tr>
+				<td><label for="passwordconf">パスワード確認</label></td>
+				<td><input type="password" id="passwordconf" name="passwordConfirmation" th:value="${signupForm.passwordConfirmation}"></td>
+				<td><div th:if="${#fields.hasErrors('passwordConfirmation')}" th:errors="${signupForm.passwordConfirmation}"></div></td>
+			</tr>
+			<tr>
+				<td><label for="firstName">ファーストネーム</label></td>
+				<td><input type="text" id="firstName" name="firstName" th:value="${signupForm.firstName}"></td>
+				<td><div th:if="${#fields.hasErrors('firstName')}" th:errors="${signupForm.firstName}"></div></td>
+			</tr>
+			<tr>
+				<td><label for="lastName">ラストネーム</label></td>
+				<td><input type="text" id="lastName" name="lastName" th:value="${signupForm.lastName}"></td>
+				<td><div th:if="${#fields.hasErrors('lastName')}" th:errors="${signupForm.lastName}"></div></td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><button type="submit">登録</button></td>
+			</tr>
+		</table>
+		<input Type="hidden" name="roleName" th:value="${signupForm.roleName}">
+	</form>
+	<a href="loginForm">ログイン画面</a>
+</body>
+</html>
